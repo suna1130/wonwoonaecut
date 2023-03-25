@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+    /* body태그 자체에 css 요소 부여 */
+        body {
+            font-family: "LeeSeoyun";
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-image: url("./스파르타2/hearts-937668_1280.webp");
+        }
+
+        .container {
+            width: 390px;
+            background-color: #ff99be;
+            height: 100%;
+        }
+
+        .photos {
+            margin-top: 30px;
+        }
+
+        .photo-frame {
+            background-color: white;
+            margin: 15px 20px;
+            height: 200px;
+
+            background-size: cover;
+            position: relative;
+
+            cursor: pointer;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .f-title {
+            color: rgb(254, 36, 101);
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .f-date {
+            color: rgb(254, 36, 101);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        #image1 {
+            background-image: url(./스파르타2/IMG_1586.JPG)
+        }
+
+        #image2 {
+            background-image: url(./스파르타2/IMG_1677.JPG)
+        }
+
+        #image3 {
+            background-image: url(./스파르타2/IMG_1682.JPG)
+        }
+
+        #image4 {
+            background-image: url(./스파르타2/IMG_1714.JPG)
+        }
+
+        .photo-description {
+            color: white;
+            background-color: rgba(165, 165, 165, 0.502);
+
+            width: fit-content;
+            padding: 0 20px;
+            margin-bottom: 10px;
+
+            border-radius: 10px;
+            position: absolute;
+            bottom: 0;
+
+            transform: translate(-50%);
+            left: 50%;
+
+            opacity: 0;
+        }
+
+        .showText {
+            opacity: 1;
+            transition:opacity 0.5s linear;
+        }
+
+        .hideText {
+            opacity: 0;
+            transition:opacity 0.5s linear;
+        }
+    </style>
+    <script>
+                // 텍스트가 보여지는 기능
+        // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+        // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+        function showText(number) {
+        if (number === 1) {
+            document.querySelector("#desc1").classList.remove("hideText");
+            document.querySelector("#desc1").classList.add("showText");
+        } else if (number === 2) {
+            document.querySelector("#desc2").classList.remove("hideText");
+            document.querySelector("#desc2").classList.add("showText");
+        } else if (number === 3) {
+            document.querySelector("#desc3").classList.remove("hideText");
+            document.querySelector("#desc3").classList.add("showText");
+        } else if (number === 4) {
+            document.querySelector("#desc4").classList.remove("hideText");
+            document.querySelector("#desc4").classList.add("showText");
+        }
+        
+    }
+
+        // 텍스트가 감춰지는 기능
+        // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+        // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+        function hideText(number) {
+        if (number === 1) {
+            document.querySelector("#desc1").classList.remove("showText");
+            document.querySelector("#desc1").classList.add("hideText");
+        } else if (number === 2) {
+            document.querySelector("#desc2").classList.remove("showText");
+            document.querySelector("#desc2").classList.add("hideText");
+        } else if (number === 3) {
+            document.querySelector("#desc3").classList.remove("showText");
+            document.querySelector("#desc3").classList.add("hideText");
+        } else if (number === 4) {
+            document.querySelector("#desc4").classList.remove("showText");
+            document.querySelector("#desc4").classList.add("hideText");
+        }
+     }
+
+        // 클릭 기능
+        // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+        function alertText(number) {
+            alert(`${number} 번째 원우야 사랑해`);
+     }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div id="image1" class="photo-frame"
+            
+            onmouseover="showText(1)"
+            onmouseout="hideText(1)"
+            onclick="alertText(1)"
+        >
+                <span id="desc1" class="photo-description">
+                    캐럿랜드 가고싶다,,
+                </span>
+            </div>
+            <div id="image2" class="photo-frame"
+            
+            onmouseover="showText(2)"
+            onmouseout="hideText(2)"
+            onclick="alertText(2)"
+        >
+                <span id="desc2" class="photo-description">
+                    여자 무서운줄 모르고
+                </span>
+            </div>
+            <div id="image3" class="photo-frame"
+            
+            onmouseover="showText(3)"
+            onmouseout="hideText(3)"
+            onclick="alertText(3)"
+        >
+                <span id="desc3" class="photo-description">
+                    넌 행복만 해라
+                </span>
+            </div>
+            <div id="image4" class="photo-frame"
+            onmouseover="showText(4)"
+            onmouseout="hideText(4)"
+            onclick="alertText(4)"
+        >
+                <span id="desc4" class="photo-description">
+                    캐럿랜드 가고싶다22,,
+                </span>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="f-title"> 원우네컷</p>
+            <p class="f-date"> 2023.03.25</p>
+        </div>
+    </div>
+</body>
+</html>
